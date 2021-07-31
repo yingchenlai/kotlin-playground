@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="aoc2020.Day2Test" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-07-31T02:41:20" hostname="ASUS-UX305" time="0.219">
+  <properties/>
+  <testcase name="isPasswordValid_shouldReturnTrueWhenCharacterAppearanceFrequencyEqualsMaxOccurrence()" classname="aoc2020.Day2Test" time="0.036"/>
+  <testcase name="toDay2Input_shouldConvertStringToDay2Input()" classname="aoc2020.Day2Test" time="0.07"/>
+  <testcase name="isPasswordValid_shouldReturnTrueWhenCharacterAppearanceFrequencyEqualsMinOccurrence()" classname="aoc2020.Day2Test" time="0.001"/>
+  <testcase name="loadInput_shouldReturnNonEmptyList()" classname="aoc2020.Day2Test" time="0.086"/>
+  <testcase name="isPasswordValid_shouldReturnFalseWhenCharacterAppearanceFrequencyIsLessThanMinOccurrence()" classname="aoc2020.Day2Test" time="0.005"/>
+  <testcase name="isPasswordValid_shouldReturnFalseWhenCharacterAppearanceFrequencyIsMoreThanMaxOccurrence()" classname="aoc2020.Day2Test" time="0.006"/>
+  <testcase name="isPasswordValid_shouldReturnTrueWhenCharacterAppearanceFrequencyIsBetweenMinAndMaxOccurrenceRange()" classname="aoc2020.Day2Test" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
