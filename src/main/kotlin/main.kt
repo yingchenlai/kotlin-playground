@@ -1,6 +1,6 @@
-import aoc2020.Day2
+import aoc2020.Day3
 
 fun main(args: Array<String>) {
     println("Hello World!")
-    Day2().run()
+    Day3().run()
 }
