@@ -10,7 +10,7 @@ class Day3 {
         val answerPart1 = this.countTreesOnPath(this.findPath(3, 1, input))
         println("day 3 answer part 1: $answerPart1")
 
-        val answerPart2 = this.countTreesOnPath(this.findPath(1, 1, input)) *
+        val answerPart2: Long = this.countTreesOnPath(this.findPath(1, 1, input)) *
                 this.countTreesOnPath(this.findPath(3, 1, input)) *
                 this.countTreesOnPath(this.findPath(5, 1, input)) *
                 this.countTreesOnPath(this.findPath(7, 1, input)) *
@@ -25,8 +25,8 @@ class Day3 {
     /**
      * Count how many trees will be encountered on a path.
      */
-    fun countTreesOnPath(path: List<Char>): Int =
-        path.count { it == '#' }
+    fun countTreesOnPath(path: List<Char>): Long =
+        path.count { it == '#' }.toLong()
 
     /**
      * Return the path traversed.
