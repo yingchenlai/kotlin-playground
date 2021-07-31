@@ -4,6 +4,12 @@ import java.io.File
 
 class Day2 {
 
+    fun run() {
+        val day2Input = this.loadInput("input/day2.txt")
+        val answer = day2Input.count{ this.isPasswordValid(it) }
+        println("day 2 answer: $answer")
+    }
+
     fun loadInput(path: String): List<Day2Input> = File(path)
         .useLines { it.toList() }
         .map{ it.toDay2Input() }

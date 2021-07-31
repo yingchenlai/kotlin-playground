@@ -5,6 +5,14 @@ import java.io.File
 
 class Day1() {
 
+    fun run() {
+        val day1Input = this.loadInput("input/day1.txt")
+        val multipleOfTwo = this.findMultipleOfTwoNumbersThatAddUpTo2020(day1Input)
+        val multipleOfThree = this.findMultipleOfThreeNumbersThatAddUpTo2020(day1Input)
+        println("multiple of two: $multipleOfTwo")
+        println("multiple of three: $multipleOfThree")
+    }
+
     fun loadInput(path: String): List<Int> = File(path)
             .useLines { it.toList() }
             .map{ it.toInt() }
