@@ -13,7 +13,7 @@ internal class Day3Test {
     }
 
     @Test
-    fun countTreesOnPath_shouldReturnCorrectAnswerForRight1Down1() {
+    fun countTreesForAngle_shouldReturnCorrectAnswerForRight1Down1() {
         val input: List<CharArray> = listOf(
             "..##.......".toCharArray(),
             "#...#...#..".toCharArray(),
@@ -28,11 +28,11 @@ internal class Day3Test {
             ".#..#...#.#".toCharArray(),
         )
 
-        assertEquals(2, day3.countTreesOnPath(day3.findPath(1, 1, input)))
+        assertEquals(2, day3.countTreesForAngle(1, 1, input))
     }
 
     @Test
-    fun countTreesOnPath_shouldReturnCorrectAnswerForRight3Down1() {
+    fun countTreesForAngle_shouldReturnCorrectAnswerForRight3Down1() {
         val input: List<CharArray> = listOf(
             "..##.......".toCharArray(),
             "#...#...#..".toCharArray(),
@@ -47,11 +47,11 @@ internal class Day3Test {
             ".#..#...#.#".toCharArray(),
         )
 
-        assertEquals(7, day3.countTreesOnPath(day3.findPath(3, 1, input)))
+        assertEquals(7, day3.countTreesForAngle(3, 1, input))
     }
 
     @Test
-    fun countTreesOnPath_shouldReturnCorrectAnswerForRight5Down1() {
+    fun countTreesForAngle_shouldReturnCorrectAnswerForRight5Down1() {
         val input: List<CharArray> = listOf(
             "..##.......".toCharArray(),
             "#...#...#..".toCharArray(),
@@ -66,11 +66,11 @@ internal class Day3Test {
             ".#..#...#.#".toCharArray(),
         )
 
-        assertEquals(3, day3.countTreesOnPath(day3.findPath(5, 1, input)))
+        assertEquals(3, day3.countTreesForAngle(5, 1, input))
     }
 
     @Test
-    fun countTreesOnPath_shouldReturnCorrectAnswerForRight7Down1() {
+    fun countTreesForAngle_shouldReturnCorrectAnswerForRight7Down1() {
         val input: List<CharArray> = listOf(
             "..##.......".toCharArray(),
             "#...#...#..".toCharArray(),
@@ -85,11 +85,11 @@ internal class Day3Test {
             ".#..#...#.#".toCharArray(),
         )
 
-        assertEquals(4, day3.countTreesOnPath(day3.findPath(7, 1, input)))
+        assertEquals(4, day3.countTreesForAngle(7, 1, input))
     }
 
     @Test
-    fun countTreesOnPath_shouldReturnCorrectAnswerForRight1Down2() {
+    fun countTreesForAngle_shouldReturnCorrectAnswerForRight1Down2() {
         val input: List<CharArray> = listOf(
             "..##.......".toCharArray(),
             "#...#...#..".toCharArray(),
@@ -104,7 +104,7 @@ internal class Day3Test {
             ".#..#...#.#".toCharArray(),
         )
 
-        assertEquals(2, day3.countTreesOnPath(day3.findPath(1, 2, input)))
+        assertEquals(2, day3.countTreesForAngle(1, 2, input))
     }
 
     @Test

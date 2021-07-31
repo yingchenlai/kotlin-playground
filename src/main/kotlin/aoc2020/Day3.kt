@@ -10,13 +10,19 @@ class Day3 {
         val answerPart1 = this.countTreesOnPath(this.findPath(3, 1, input))
         println("day 3 answer part 1: $answerPart1")
 
-        val answerPart2: Long = this.countTreesOnPath(this.findPath(1, 1, input)) *
-                this.countTreesOnPath(this.findPath(3, 1, input)) *
-                this.countTreesOnPath(this.findPath(5, 1, input)) *
-                this.countTreesOnPath(this.findPath(7, 1, input)) *
-                this.countTreesOnPath(this.findPath(1, 2, input))
+        val answerPart2: Long = countTreesForAngle(1, 1, input) *
+                countTreesForAngle(3, 1, input) *
+                countTreesForAngle(5, 1, input) *
+                countTreesForAngle(7, 1, input) *
+                countTreesForAngle(1, 2, input)
         println("day 3 answer part 2: $answerPart2")
     }
+
+    /**
+     * Count the trees encountered for a given angle defined by rightIncrement and downIncrement.
+     */
+    fun countTreesForAngle(rightIncrement: Int, downIncrement: Int, input: List<CharArray>) =
+        this.countTreesOnPath(this.findPath(rightIncrement, downIncrement, input))
 
     fun loadInput(path: String): List<CharArray> = File(path)
         .useLines { it.toList() }
