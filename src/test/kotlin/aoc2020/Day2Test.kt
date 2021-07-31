@@ -9,7 +9,7 @@ internal class Day2Test {
 
     @Test
     fun toDay2Input_shouldConvertStringToDay2Input() {
-        val day2Input = Day2Input(minOccurrence = 15, maxOccurrence = 19, character = 'k', password = "kkkkkkkkkkkkzkkkkkkk")
+        val day2Input = Day2Input(firstNumber = 15, secondNumber = 19, character = 'k', password = "kkkkkkkkkkkkzkkkkkkk")
         with(Day2()) {
             assertEquals(day2Input, "15-19 k: kkkkkkkkkkkkzkkkkkkk".toDay2Input())
         }
@@ -21,33 +21,56 @@ internal class Day2Test {
     }
 
     @Test
-    fun isPasswordValid_shouldReturnTrueWhenCharacterAppearanceFrequencyEqualsMinOccurrence() {
-        val day2Input = Day2Input(minOccurrence = 3, maxOccurrence = 5, character = 'k', password = "jrlfkkkiro")
-        assertTrue(day2.isPasswordValid(day2Input))
+    fun isPasswordValidAccordingToOldPolicy_shouldReturnTrueWhenCharacterAppearanceFrequencyEqualsMinOccurrence() {
+        val day2Input = Day2Input(firstNumber = 3, secondNumber = 5, character = 'k', password = "jrlfkkkiro")
+        assertTrue(day2.isPasswordValidAccordingToOldPolicy(day2Input))
     }
 
     @Test
-    fun isPasswordValid_shouldReturnTrueWhenCharacterAppearanceFrequencyEqualsMaxOccurrence() {
-        val day2Input = Day2Input(minOccurrence = 3, maxOccurrence = 5, character = 'k', password = "jrlfkkkkkiro")
-        assertTrue(day2.isPasswordValid(day2Input))
+    fun isPasswordValidAccordingToOldPolicy_shouldReturnTrueWhenCharacterAppearanceFrequencyEqualsMaxOccurrence() {
+        val day2Input = Day2Input(firstNumber = 3, secondNumber = 5, character = 'k', password = "jrlfkkkkkiro")
+        assertTrue(day2.isPasswordValidAccordingToOldPolicy(day2Input))
     }
 
     @Test
-    fun isPasswordValid_shouldReturnTrueWhenCharacterAppearanceFrequencyIsBetweenMinAndMaxOccurrenceRange() {
-        val day2Input = Day2Input(minOccurrence = 3, maxOccurrence = 5, character = 'k', password = "jrlfkkkkiro")
-        assertTrue(day2.isPasswordValid(day2Input))
+    fun isPasswordValidAccordingToOldPolicy_shouldReturnTrueWhenCharacterAppearanceFrequencyIsBetweenMinAndMaxOccurrenceRange() {
+        val day2Input = Day2Input(firstNumber = 3, secondNumber = 5, character = 'k', password = "jrlfkkkkiro")
+        assertTrue(day2.isPasswordValidAccordingToOldPolicy(day2Input))
     }
 
     @Test
-    fun isPasswordValid_shouldReturnFalseWhenCharacterAppearanceFrequencyIsLessThanMinOccurrence() {
-        val day2Input = Day2Input(minOccurrence = 3, maxOccurrence = 5, character = 'k', password = "jrlfkkiro")
-        assertFalse(day2.isPasswordValid(day2Input))
+    fun isPasswordValidAccordingToOldPolicy_shouldReturnFalseWhenCharacterAppearanceFrequencyIsLessThanMinOccurrence() {
+        val day2Input = Day2Input(firstNumber = 3, secondNumber = 5, character = 'k', password = "jrlfkkiro")
+        assertFalse(day2.isPasswordValidAccordingToOldPolicy(day2Input))
     }
 
     @Test
-    fun isPasswordValid_shouldReturnFalseWhenCharacterAppearanceFrequencyIsMoreThanMaxOccurrence() {
-        val day2Input = Day2Input(minOccurrence = 3, maxOccurrence = 5, character = 'k', password = "jrlfkkkkkkiro")
-        assertFalse(day2.isPasswordValid(day2Input))
+    fun isPasswordValidAccordingToOldPolicy_shouldReturnFalseWhenCharacterAppearanceFrequencyIsMoreThanMaxOccurrence() {
+        val day2Input = Day2Input(firstNumber = 3, secondNumber = 5, character = 'k', password = "jrlfkkkkkkiro")
+        assertFalse(day2.isPasswordValidAccordingToOldPolicy(day2Input))
     }
 
+    @Test
+    fun isPasswordValidAccordingToNewPolicy_shouldReturnTrueWhenCharacterAppearsAtFirstIndex() {
+        val day2Input = Day2Input(firstNumber = 3, secondNumber = 5, character = 'k', password = "jrkfykkkiro")
+        assertTrue(day2.isPasswordValidAccordingToNewPolicy(day2Input))
+    }
+
+    @Test
+    fun isPasswordValidAccordingToNewPolicy_shouldReturnTrueWhenCharacterAppearsAtSecondIndex() {
+        val day2Input = Day2Input(firstNumber = 3, secondNumber = 5, character = 'k', password = "jrfukekkkiro")
+        assertTrue(day2.isPasswordValidAccordingToNewPolicy(day2Input))
+    }
+
+    @Test
+    fun isPasswordValidAccordingToNewPolicy_shouldReturnFalseWhenCharacterAppearsAtNeitherIndex() {
+        val day2Input = Day2Input(firstNumber = 3, secondNumber = 5, character = 'k', password = "jrfucekkkiro")
+        assertFalse(day2.isPasswordValidAccordingToNewPolicy(day2Input))
+    }
+
+    @Test
+    fun isPasswordValidAccordingToNewPolicy_shouldReturnFalseWhenCharacterAppearsAtBothIndices() {
+        val day2Input = Day2Input(firstNumber = 3, secondNumber = 5, character = 'k', password = "jrkukekkkiro")
+        assertFalse(day2.isPasswordValidAccordingToNewPolicy(day2Input))
+    }
 }

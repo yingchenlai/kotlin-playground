@@ -6,8 +6,10 @@ class Day2 {
 
     fun run() {
         val day2Input = this.loadInput("input/day2.txt")
-        val answer = day2Input.count{ this.isPasswordValid(it) }
-        println("day 2 answer: $answer")
+        val answerPart1 = day2Input.count{ this.isPasswordValidAccordingToOldPolicy(it) }
+        println("day 2 answer part 1: $answerPart1")
+        val answerPart2 = day2Input.count{ this.isPasswordValidAccordingToNewPolicy(it) }
+        println("day 2 answer part 2: $answerPart2")
     }
 
     fun loadInput(path: String): List<Day2Input> = File(path)
@@ -16,18 +18,32 @@ class Day2 {
 
     fun String.toDay2Input(): Day2Input {
         val strings = this.split("-", " ", ": ")
-        return Day2Input(minOccurrence = strings[0].toInt(),
-            maxOccurrence = strings[1].toInt(),
+        return Day2Input(firstNumber = strings[0].toInt(),
+            secondNumber = strings[1].toInt(),
             character = strings[2].toCharArray()[0],
             password = strings[3]
         )
     }
 
-    fun isPasswordValid(day2Input: Day2Input): Boolean {
+    /**
+     * According to old policy, first number describes the min occurrence of character in password,
+     * and second number describes the max occurrence.
+     */
+    fun isPasswordValidAccordingToOldPolicy(day2Input: Day2Input): Boolean {
         val occurrence = day2Input.password.count { it == day2Input.character }
-        return day2Input.minOccurrence <= occurrence && day2Input.maxOccurrence >= occurrence
+        return day2Input.firstNumber <= occurrence && day2Input.secondNumber >= occurrence
+    }
+
+    /**
+     * According to new policy, character must appear at the index specified by only the first or second number (1-indexed).
+     */
+    fun isPasswordValidAccordingToNewPolicy(day2Input: Day2Input): Boolean {
+        val passwordCharArray = day2Input.password.toCharArray()
+        val isCharacterAtFirstIndex = passwordCharArray[day2Input.firstNumber - 1] == day2Input.character
+        val isCharacterAtSecondIndex = passwordCharArray[day2Input.secondNumber - 1] == day2Input.character
+        return isCharacterAtFirstIndex.xor(isCharacterAtSecondIndex)
     }
 
 }
 
-data class Day2Input(val minOccurrence: Int, val maxOccurrence: Int, val character: Char, val password: String)
+data class Day2Input(val firstNumber: Int, val secondNumber: Int, val character: Char, val password: String)
