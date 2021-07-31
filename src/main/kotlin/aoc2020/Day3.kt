@@ -18,15 +18,15 @@ class Day3 {
         println("day 3 answer part 2: $answerPart2")
     }
 
+    fun loadInput(path: String): List<CharArray> = File(path)
+        .useLines { it.toList() }
+        .map { it.toCharArray() }
+
     /**
      * Count the trees encountered for a given angle defined by rightIncrement and downIncrement.
      */
     fun countTreesForAngle(rightIncrement: Int, downIncrement: Int, input: List<CharArray>) =
         this.countTreesOnPath(this.findPath(rightIncrement, downIncrement, input))
-
-    fun loadInput(path: String): List<CharArray> = File(path)
-        .useLines { it.toList() }
-        .map { it.toCharArray() }
 
     /**
      * Count how many trees will be encountered on a path.
