@@ -8,13 +8,19 @@ class Day5 {
 
     fun run() {
         val input = this.loadInput("input/day5.txt")
-        val answerPart1 = input.map { it.toSeat() }.maxOf { it.seatId }
+        val seats = input.map { it.toSeat() }
+        val answerPart1 = seats.maxOf { it.seatId }
         println("day 5 answer part 1: $answerPart1")
+        val answerPart2 = seats.findMissingSeatIds()
+        println("day 5 answer part 2: $answerPart2")
     }
 
     fun loadInput(path: String): List<CharArray> = File(path)
         .useLines { it.toList() }
         .map { it.toCharArray() }
+
+    fun List<Seat>.findMissingSeatIds(): List<Int> =
+        (0..getSeatId(127, 7)).filter { it !in this.map { seat -> seat.seatId } }
 
     fun CharArray.toSeat(): Seat {
         val row = this.slice(0..6).toRow()

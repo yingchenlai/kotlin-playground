@@ -36,4 +36,20 @@ internal class Day5Test {
         }
     }
 
+    @Test
+    fun findMissingSeatIds() {
+        val input = listOf(
+            Seat(1, 0, 8),
+            Seat(1, 1, 9),
+            Seat(1, 2, 10),
+            Seat(1, 3, 11),
+            Seat(1, 4, 12),
+            Seat(1, 5, 13),
+            Seat(1, 6, 14),
+        )
+        with(Day5()) {
+            assertNotNull(input.findMissingSeatIds())
+        }
+    }
+
 }
