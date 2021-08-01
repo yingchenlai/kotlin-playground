@@ -31,17 +31,6 @@ internal class Day7Test {
 
     @Test
     fun getPart1Answer() {
-//        val input = listOf(
-//            Bag("light red", mapOf(
-//                "striped silver" to 2,
-//                "mirrored maroon" to 4,
-//                "shiny gold" to 5,
-//                "dotted gold" to 1
-//            )),
-//            Bag("dark coral", mapOf(
-//                "pale blue" to 4,
-//            )),
-//        )
         val input = listOf(
             "light red bags contain 1 bright white bag, 2 muted yellow bags.",
             "dark orange bags contain 3 bright white bags, 4 muted yellow bags.",
