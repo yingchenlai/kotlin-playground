@@ -10,7 +10,7 @@ internal class Day2Test {
     @Test
     fun toDay2Input_shouldConvertStringToDay2Input() {
         val day2Input = Day2Input(firstNumber = 15, secondNumber = 19, character = 'k', password = "kkkkkkkkkkkkzkkkkkkk")
-        with(Day2()) {
+        with(day2) {
             assertEquals(day2Input, "15-19 k: kkkkkkkkkkkkzkkkkkkk".toDay2Input())
         }
     }

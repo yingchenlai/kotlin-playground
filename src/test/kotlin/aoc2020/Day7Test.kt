@@ -24,7 +24,7 @@ internal class Day7Test {
                 "dotted gold" to 1
             )
         )
-        with(Day7()) {
+        with(day7) {
             assertEquals(expectedResult, input.toBag())
         }
     }

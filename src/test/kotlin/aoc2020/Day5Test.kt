@@ -15,7 +15,7 @@ internal class Day5Test {
     @Test
     fun toSeat_shouldReturnCorrectResultForTestCase1() {
         val expectedResult = Seat(70, 7, 567)
-        with(Day5()) {
+        with(day5) {
             assertEquals(expectedResult, "BFFFBBFRRR".toCharArray().toSeat())
         }
     }
@@ -23,7 +23,7 @@ internal class Day5Test {
     @Test
     fun toSeat_shouldReturnCorrectResultForTestCase2() {
         val expectedResult = Seat(14, 7, 119)
-        with(Day5()) {
+        with(day5) {
             assertEquals(expectedResult, "FFFBBBFRRR".toCharArray().toSeat())
         }
     }
@@ -31,7 +31,7 @@ internal class Day5Test {
     @Test
     fun toSeat_shouldReturnCorrectResultForTestCase3() {
         val expectedResult = Seat(102, 4, 820)
-        with(Day5()) {
+        with(day5) {
             assertEquals(expectedResult, "BBFFBBFRLL".toCharArray().toSeat())
         }
     }
@@ -47,7 +47,7 @@ internal class Day5Test {
             Seat(1, 5, 13),
             Seat(1, 6, 14),
         )
-        with(Day5()) {
+        with(day5) {
             assertNotNull(input.findMissingSeatIds())
         }
     }

@@ -30,7 +30,7 @@ internal class Day4Test {
             "hcl:#cfa07d eyr:2025 pid:166559648",
             "iyr:2011 ecl:brn hgt:59in"
         )
-        with(Day4()) {
+        with(day4) {
             assertEquals(2, input.splitByEmptyLines().map { it.toPassport() }.count{ it.isValid() })
         }
     }
@@ -45,7 +45,7 @@ internal class Day4Test {
         )
         val expectedResult = Passport("1971", "2017", "2020", "160cm", "", "hzl", "157096267", "")
 
-        with(Day4()) {
+        with(day4) {
             assertEquals(expectedResult, input.toPassport())
         }
     }
@@ -53,7 +53,7 @@ internal class Day4Test {
     @Test
     fun findValueByFieldName_shouldFindByrValue() {
         val string = "byr:1971 iyr:2017 hgt:160cm"
-        with(Day4()) {
+        with(day4) {
             assertEquals("1971", string.findValueByFieldName("byr"))
         }
     }
@@ -61,7 +61,7 @@ internal class Day4Test {
     @Test
     fun findValueByFieldName_shouldFindHclValue() {
         val string = "byr:1971 iyr:2017 hgt:160cm hcl:#fffffd"
-        with(Day4()) {
+        with(day4) {
             assertEquals("#fffffd", string.findValueByFieldName("hcl"))
         }
     }
@@ -69,7 +69,7 @@ internal class Day4Test {
     @Test
     fun isValid_shouldReturnTrueWhenAllFieldsOfAPassportAreFilledExceptCid() {
         val input = Passport("1971", "2017", "2020", "160cm", "hzl", "hzl", "157096267", "")
-        with(Day4()) {
+        with(day4) {
             assertTrue(input.isValid())
         }
     }
@@ -77,161 +77,161 @@ internal class Day4Test {
     @Test
     fun isValid_shouldReturnFalseWhenByrIsEmpty() {
         val input = Passport("", "2017", "2020", "160cm", "hzl", "hzl", "157096267", "")
-        with(Day4()) {
+        with(day4) {
             assertFalse(input.isValid())
         }
     }
 
     @Test
     fun isValidByr_shouldReturnTrueFor1930() {
-        with(Day4()) {
+        with(day4) {
             assertTrue("1930".isValidByr())
         }
     }
 
     @Test
     fun isValidByr_shouldReturnTrueFor1920() {
-        with(Day4()) {
+        with(day4) {
             assertTrue("1920".isValidByr())
         }
     }
 
     @Test
     fun isValidByr_shouldReturnTrueFor2002() {
-        with(Day4()) {
+        with(day4) {
             assertTrue("2002".isValidByr())
         }
     }
 
     @Test
     fun isValidByr_shouldReturnFalseFor1919() {
-        with(Day4()) {
+        with(day4) {
             assertFalse("1919".isValidByr())
         }
     }
 
     @Test
     fun isValidByr_shouldReturnFalseFor2003() {
-        with(Day4()) {
+        with(day4) {
             assertFalse("2003".isValidByr())
         }
     }
 
     @Test
     fun isValidIyr_shouldReturnTrueFor2010() {
-        with(Day4()) {
+        with(day4) {
             assertTrue("2010".isValidIyr())
         }
     }
 
     @Test
     fun isValidIyr_shouldReturnFalseFor2009() {
-        with(Day4()) {
+        with(day4) {
             assertFalse("2009".isValidIyr())
         }
     }
 
     @Test
     fun isValidIyr_shouldReturnFalseFor2021() {
-        with(Day4()) {
+        with(day4) {
             assertFalse("2021".isValidIyr())
         }
     }
 
     @Test
     fun isValidEyr_shouldReturnTrueFor2020() {
-        with(Day4()) {
+        with(day4) {
             assertTrue("2020".isValidEyr())
         }
     }
 
     @Test
     fun isValidEyr_shouldReturnFalseFor2019() {
-        with(Day4()) {
+        with(day4) {
             assertFalse("2019".isValidEyr())
         }
     }
 
     @Test
     fun isValidEyr_shouldReturnFalseFor2031() {
-        with(Day4()) {
+        with(day4) {
             assertFalse("2031".isValidEyr())
         }
     }
 
     @Test
     fun isValidHgt_shouldReturnTrueFor193cm() {
-        with(Day4()) {
+        with(day4) {
             assertTrue("193cm".isValidHgt())
         }
     }
 
     @Test
     fun isValidHgt_shouldReturnTrueFor76in() {
-        with(Day4()) {
+        with(day4) {
             assertTrue("76in".isValidHgt())
         }
     }
 
     @Test
     fun isValidHgt_shouldReturnFalseFor58in() {
-        with(Day4()) {
+        with(day4) {
             assertFalse("58in".isValidHgt())
         }
     }
 
     @Test
     fun isValidHgt_shouldReturnFalseFor149cm() {
-        with(Day4()) {
+        with(day4) {
             assertFalse("149cm".isValidHgt())
         }
     }
 
     @Test
     fun isValidHgt_shouldReturnFalseFor149() {
-        with(Day4()) {
+        with(day4) {
             assertFalse("149".isValidHgt())
         }
     }
 
     @Test
     fun isValidHcl_shouldReturnTrueForHexColor() {
-        with(Day4()) {
+        with(day4) {
             assertTrue("#3e3e07".isValidHcl())
         }
     }
 
     @Test
     fun isValidHcl_shouldReturnFalseForNonHexColor() {
-        with(Day4()) {
+        with(day4) {
             assertFalse("blu".isValidHcl())
         }
     }
 
     @Test
     fun isValidEcl_shouldReturnTrueForAmb() {
-        with(Day4()) {
+        with(day4) {
             assertTrue("amb".isValidEcl())
         }
     }
 
     @Test
     fun isValidEcl_shouldReturnFalseForHexColor() {
-        with(Day4()) {
+        with(day4) {
             assertFalse("#3e3e07".isValidEcl())
         }
     }
 
     @Test
     fun isValidPid_shouldReturnTrueFor9Digits() {
-        with(Day4()) {
+        with(day4) {
             assertTrue("699976645".isValidPid())
         }
     }
 
     @Test
     fun isValidPid_shouldReturnFalseFor10Digits() {
-        with(Day4()) {
+        with(day4) {
             assertFalse("0699976645".isValidPid())
         }
     }
@@ -239,7 +239,7 @@ internal class Day4Test {
     @Test
     fun isValidPart2_shouldReturnTrueWhenAllFieldsOfAPassportAreFilledAndValidExceptCid() {
         val input = Passport("1971", "2017", "2020", "160cm", "#3e3e07", "hzl", "157096267", "")
-        with(Day4()) {
+        with(day4) {
             assertTrue(input.isValidPart2())
         }
     }
@@ -247,7 +247,7 @@ internal class Day4Test {
     @Test
     fun isValidPart2_shouldReturnFalseWhenSomeFieldsAreInvalid() {
         val input = Passport("1971", "2021", "2020", "160", "hzl", "hzl", "15709626", "")
-        with(Day4()) {
+        with(day4) {
             assertFalse(input.isValidPart2())
         }
     }

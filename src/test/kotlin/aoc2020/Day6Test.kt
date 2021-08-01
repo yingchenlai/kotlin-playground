@@ -19,7 +19,7 @@ internal class Day6Test {
             "abd",
             "e"
         )
-        with(Day6()) {
+        with(day6) {
             assertEquals(5, input.countUniqueAlphabets())
         }
     }
@@ -31,7 +31,7 @@ internal class Day6Test {
             "abd",
             "a"
         )
-        with(Day6()) {
+        with(day6) {
             assertEquals(1, input.countCommonAlphabets())
         }
     }
