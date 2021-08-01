@@ -45,4 +45,22 @@ internal class Day8Test {
             assertEquals(5, input.getPart1Answer())
         }
     }
+
+    @Test
+    fun getPart2Answer() {
+        val input = listOf(
+            Instruction(Command.nop, 0),
+            Instruction(Command.acc, 1),
+            Instruction(Command.jmp, 4),
+            Instruction(Command.acc, 3),
+            Instruction(Command.jmp, -3),
+            Instruction(Command.acc, -99),
+            Instruction(Command.acc, 1),
+            Instruction(Command.jmp, -4),
+            Instruction(Command.acc, 6),
+        )
+        with(day8) {
+            assertEquals(8, input.getPart2Answer())
+        }
+    }
 }
