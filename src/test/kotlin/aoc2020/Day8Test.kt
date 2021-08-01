@@ -27,4 +27,22 @@ internal class Day8Test {
     fun loadInput_shouldReturnNonEmptyList() {
         assertTrue(day8.loadInput("input/day8.txt").isNotEmpty())
     }
+
+    @Test
+    fun getPart1Answer() {
+        val input = listOf(
+            Instruction(Command.nop, 0),
+            Instruction(Command.acc, 1),
+            Instruction(Command.jmp, 4),
+            Instruction(Command.acc, 3),
+            Instruction(Command.jmp, -3),
+            Instruction(Command.acc, -99),
+            Instruction(Command.acc, 1),
+            Instruction(Command.jmp, -4),
+            Instruction(Command.acc, 6),
+        )
+        with(day8) {
+            assertEquals(5, input.getPart1Answer())
+        }
+    }
 }
