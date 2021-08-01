@@ -2,6 +2,7 @@ package aoc2020
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import utils.splitByEmptyLines
 
 internal class Day4Test {
 
@@ -31,19 +32,6 @@ internal class Day4Test {
         )
         with(Day4()) {
             assertEquals(2, input.splitByEmptyLines().map { it.toPassport() }.count{ it.isValid() })
-        }
-    }
-
-    @Test
-    fun splitByEmptyLines_ShouldReturnCorrectSplitList() {
-        val input = listOf("First line", "Second line", "\n", "Third line", "\n")
-        val expectedResult = listOf(
-            listOf("First line", "Second line"),
-            listOf("Third line")
-        )
-
-        with(Day4()) {
-            assertEquals(expectedResult, input.splitByEmptyLines())
         }
     }
 
