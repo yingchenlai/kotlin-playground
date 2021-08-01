@@ -14,16 +14,48 @@ internal class Day7Test {
 
     @Test
     fun toBag() {
-        val input = "dark maroon bags contain 2 striped silver bags, 4 mirrored maroon bags, 5 shiny gold bags, 1 dotted gold bag."
-        val expectedResult = Bag("dark maroon", mapOf(
-            "striped silver" to 2,
-            "mirrored maroon" to 4,
-            "shiny gold" to 5,
-            "dotted gold" to 1
-        ))
+        val input =
+            "dark maroon bags contain 2 striped silver bags, 4 mirrored maroon bags, 5 shiny gold bags, 1 dotted gold bag."
+        val expectedResult = Bag(
+            "dark maroon", mapOf(
+                "striped silver" to 2,
+                "mirrored maroon" to 4,
+                "shiny gold" to 5,
+                "dotted gold" to 1
+            )
+        )
         with(Day7()) {
             assertEquals(expectedResult, input.toBag())
         }
+    }
 
+    @Test
+    fun getPart1Answer() {
+//        val input = listOf(
+//            Bag("light red", mapOf(
+//                "striped silver" to 2,
+//                "mirrored maroon" to 4,
+//                "shiny gold" to 5,
+//                "dotted gold" to 1
+//            )),
+//            Bag("dark coral", mapOf(
+//                "pale blue" to 4,
+//            )),
+//        )
+        val input = listOf(
+            "light red bags contain 1 bright white bag, 2 muted yellow bags.",
+            "dark orange bags contain 3 bright white bags, 4 muted yellow bags.",
+            "bright white bags contain 1 shiny gold bag.",
+            "muted yellow bags contain 2 shiny gold bags, 9 faded blue bags.",
+            "shiny gold bags contain 1 dark olive bag, 2 vibrant plum bags.",
+            "dark olive bags contain 3 faded blue bags, 4 dotted black bags.",
+            "vibrant plum bags contain 5 faded blue bags, 6 dotted black bags.",
+            "faded blue bags contain no other bags.",
+            "dotted black bags contain no other bags.",
+        )
+
+        with(day7) {
+            assertEquals(4, day7.getPart1Answer(input.map { it.toBag() }))
+        }
     }
 }
