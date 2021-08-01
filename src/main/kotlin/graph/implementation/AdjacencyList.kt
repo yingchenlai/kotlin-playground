@@ -53,7 +53,7 @@ class AdjacencyList<T> : Graph<T> {
     ) {
         pushed.add(source) // 1
         visited.add(source)
-        val neighbors = edges(source)
+        val neighbors = getEdges(source)
         neighbors.forEach { // 2
             if (it.destination !in pushed) {
                 depthFirstSearchRecursion(it.destination, visited, pushed) // 3
@@ -61,7 +61,7 @@ class AdjacencyList<T> : Graph<T> {
         }
     }
 
-    private fun edges(source: T): MutableList<Edge<T>> =
-        adjacencies[source] ?: mutableListOf()
+    override fun getEdges(source: T): List<Edge<T>> =
+        adjacencies[source] ?: emptyList()
 
 }

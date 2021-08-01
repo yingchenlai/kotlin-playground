@@ -5,6 +5,8 @@ interface Graph<T> {
 
     fun hasVertex(data: T): Boolean
 
+    fun getEdges(source: T): List<Edge<T>>
+
     fun addDirectedEdge(
         source: T,
         destination: T,
