@@ -19,6 +19,5 @@ interface Graph<T> {
         weight: Double = 1.0
     )
 
-    fun depthFirstSearch(start: T): List<T>
 }
 

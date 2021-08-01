@@ -1,5 +1,6 @@
 package aoc2020
 
+import graph.algorithm.DepthFirstSearchRecursive
 import graph.implementation.AdjacencyList
 import graph.structure.Graph
 import java.io.File
@@ -19,8 +20,11 @@ class Day7 {
 
     fun getPart1Answer(bags: List<Bag>): Int {
         val graph = bags.toGraph()
-        val path = graph.depthFirstSearch("shiny gold")
-        return path.size - 1
+        val dfs = DepthFirstSearchRecursive<String>()
+        with(dfs) {
+            val path = graph.depthFirstSearch("shiny gold")
+            return path.size - 1
+        }
     }
 
     private fun List<Bag>.toGraph(): Graph<String> {
