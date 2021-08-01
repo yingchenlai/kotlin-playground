@@ -8,12 +8,28 @@ class Day9 {
     fun run() {
         val input = this.loadInput("input/day9.txt")
         println("day 9 answer part 1: ${input.getPart1Answer(25)}")
-//        println("day 8 answer part 2: ${input.getPart2Answer()}")
+        println("day 9 answer part 2: ${input.getPart2Answer(507622668)}")
     }
 
     fun loadInput(path: String): List<Long> = File(path)
         .useLines { it.toList() }
-        .map{ it.toLong() }
+        .map { it.toLong() }
+
+    private fun List<Long>.getSumOfWindow(startIndex: Int, windowSize: Int): Long {
+        return this.subList(startIndex, startIndex + windowSize).sum()
+    }
+
+    fun List<Long>.getPart2Answer(sum: Long): Long {
+        for (startIndex in 0 until this.size) {
+            for (windowSize in 2 until (this.size - startIndex)) {
+                if (this.getSumOfWindow(startIndex, windowSize) == sum) {
+                    val window = this.subList(startIndex, startIndex + windowSize)
+                    return (window.minOrNull() ?: 0) + (window.maxOrNull() ?: 0)
+                }
+            }
+        }
+        return -1
+    }
 
     private fun List<Long>.getCombinations(combinationSize: Int): List<List<Long>> {
         return combination(this)
@@ -23,7 +39,7 @@ class Day9 {
     }
 
     private fun isNumberValid(number: Long, preamble: List<Long>): Boolean {
-        val validValues = preamble.getCombinations(2).map{ it.sum() }
+        val validValues = preamble.getCombinations(2).map { it.sum() }
         return number in validValues
     }
 
